@@ -13,6 +13,9 @@ class Search extends Component {
     state = {
         bookTitle: "",
         results: [],
+        title: "",
+        author: "",
+        description: "",    
         sent: false
     }
     componentDidMount() {
@@ -65,6 +68,24 @@ class Search extends Component {
                   </FormBtn>
                 </form>
               </Col>
+              <Col size="sm-12">
+                {this.state.results.length ? (
+                <List>
+                    {this.state.results.map(book => (
+                    <ListItem key={book._id}>
+                        <Link to={"/books/" + book._id}>
+                        <strong>
+                            {book.volumeInfo.title} by {book.volumeInfo.authors[0]}
+                        </strong>
+                        {book.volumeInfo.subtitle}
+                        </Link>
+                    </ListItem>
+                    ))}
+                </List>
+                ) : (
+                <h3>No Results to Display</h3>
+                )}
+            </Col>
             </Row>
           </Container>
         );
