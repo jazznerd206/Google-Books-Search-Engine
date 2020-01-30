@@ -51,11 +51,11 @@ class Saved extends Component {
                 <List>
                     {this.state.books.map((book) => (
                     <ListItem key={book.id}>
+                        <img src={book.image}></img>
                         <strong>
                             {book.title} by {book.author}
                         </strong>
                         {book.description}
-                        <img src={book.image}></img>
                         <DeleteBtn onClick={() => this.deleteBook(book.id)} />
                     </ListItem>
                     ))}

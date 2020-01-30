@@ -1,0 +1,6 @@
+.container {
+    border-left: 1px dashed grey;
+    border-right: 1px dashed grey;
+    min-height: 100vh;
+    display: block;
+}

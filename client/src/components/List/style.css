@@ -1,9 +1,10 @@
 .list-overflow-container {
-  max-height: 545px;
   border: 1px #DDDDDD solid;
   border-radius: 4px;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
+  margin-top: 100px;
+  margin-bottom: 100px;
 }
 
 .list-overflow-container ul {
@@ -30,4 +31,8 @@
 
 .list-overflow-container li:last-child {
   border-bottom: none;
+}
+
+.list-group-item {
+  display: inline-block;
 }

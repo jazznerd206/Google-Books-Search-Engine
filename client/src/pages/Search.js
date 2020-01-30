@@ -86,11 +86,11 @@ class Search extends Component {
                 <List>
                     {this.state.results.map((book, index) => (
                     <ListItem key={book.id}>
+                        <img src={book.volumeInfo.imageLinks.smallThumbnail}></img>
                         <strong>
                             {book.volumeInfo.title} by {book.volumeInfo.authors[0]}
                         </strong>
                         {book.volumeInfo.description}
-                        <img src={book.volumeInfo.imageLinks.smallThumbnail}></img>
                         <div className="book-btn-div">
                         <SaveBtn
                             key={"" + index + book.id}
