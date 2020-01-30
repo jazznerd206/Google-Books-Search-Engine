@@ -3,8 +3,8 @@ import "./style.css";
 
 function Nav() {
   return (
-    <nav className="navbar navbar-expand-lg">
-      <a className="navbar-brand" href="/">
+    <nav className="navbar-center navbar-expand-lg">
+      <a className="navbar-brand title" href="/">
         <p>Google Books</p>
       </a>
       <a className="navbar-brand" href="/">

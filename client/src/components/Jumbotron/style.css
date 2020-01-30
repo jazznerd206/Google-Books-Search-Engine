@@ -1,8 +1,5 @@
 .jumbotron {
     text-align: center;
-    background: white;
-    background-image: url('/images/BooksJT.png');
-    background-position: bottom;
-    background-repeat: no-repeat;
-    min-height: 350px;
+    background: none;
+    min-height: 100px;
 }
