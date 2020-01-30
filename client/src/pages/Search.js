@@ -90,6 +90,7 @@ class Search extends Component {
                             {book.volumeInfo.title} by {book.volumeInfo.authors[0]}
                         </strong>
                         {book.volumeInfo.description}
+                        <img src={book.volumeInfo.imageLinks.smallThumbnail}></img>
                         <div className="book-btn-div">
                         <SaveBtn
                             key={"" + index + book.id}
