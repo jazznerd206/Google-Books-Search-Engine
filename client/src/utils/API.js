@@ -8,6 +8,9 @@ export default {
   getBooks: function() {
     return axios.get("/api/books");
   },
+  randomBooks: function(value) {
+    return axios.get('GOOGLE BOOKS API ENDPOINT FOR RANDOMS')
+  },
   // Gets the book with the given id
   getBook: function(id) {
     return axios.get("/api/books/" + id);

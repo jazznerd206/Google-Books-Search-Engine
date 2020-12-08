@@ -1,5 +1,5 @@
 .jumbotron {
     text-align: center;
     background: none;
-    min-height: 100px;
+    height: auto;
 }

@@ -1,11 +1,10 @@
 import React, { Component } from "react";
-import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
-import { Link } from "react-router-dom";
 import SaveBtn from "../components/SaveBtn";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
+import './styles.css';
 
 
 class Search extends Component {
@@ -64,56 +63,67 @@ class Search extends Component {
           <Container>
             <Row>
               <Col size="sm-12">
-                <Jumbotron>
+                {/* <Jumbotron>
                   <h1>Book your next adventure!!</h1>
-                </Jumbotron>
+                </Jumbotron> */}
                 <form>
                   <Input
                     value={this.state.bookTitle}
                     onChange={this.handleInputChange}
                     name="bookTitle"
-                    placeholder="api-query"
+                    placeholder="Search"
                   />
                   <FormBtn
                     onClick={this.bookFind}
                   >
-                    Search GoogleBooks
+                    Find A Book
                   </FormBtn>
                 </form>
               </Col>
-              <Col size="sm-12">
+              </Row>
+              <Row>
+              {/* <Col size="sm-12"> */}
                 {this.state.results.length ? (
                 <List>
                     {this.state.results.map((book, index) => (
                     <ListItem key={book.id}>
-                        {/* <img src={book.volumeInfo.imageLinks.smallThumbnail}></img> */}
-                        <strong>
-                            {book.volumeInfo.title} by {book.volumeInfo.authors[0]}
-                        </strong>
-                        {book.volumeInfo.description}
+                        <div className="cover-image">
+                          <img src={book.volumeInfo.imageLinks.smallThumbnail} alt={book.volumeInfo.title}></img>
+                        </div>
+                        <div className="book-title">
+                          {book.volumeInfo.title}
+                        </div>
+                        <div className="book-author">
+                          {book.volumeInfo.authors[0]}
+                        </div>
+                        <div className="book-summmary">
+                          {book.volumeInfo.description}
+                        </div>
                         <div className="book-btn-div">
-                        <SaveBtn
-                            key={"" + index + book.id}
-                            disabled={book.volumeInfo.infoLink === "/"}
-                            onClick={() => this.saveBook({
-                            title: book.volumeInfo.title,
-                            author: book.volumeInfo.authors[0],
-                            description: book.volumeInfo.description,
-                            // image: book.volumeInfo.imageLinks.smallThumbnail,
-                            link: book.volumeInfo.infoLink,
-                            _id: book.id
-                            })}
-                        >
-                            Save Book
-                        </SaveBtn>
+                          <SaveBtn
+                              key={"" + index + book.id}
+                              disabled={book.volumeInfo.infoLink === "/"}
+                              onClick={() => this.saveBook({
+                              title: book.volumeInfo.title,
+                              author: book.volumeInfo.authors[0],
+                              description: book.volumeInfo.description,
+                              image: book.volumeInfo.imageLinks.smallThumbnail,
+                              link: book.volumeInfo.infoLink,
+                              _id: book.id
+                              })}
+                          >
+                              Save Book
+                          </SaveBtn>
                         </div>
                     </ListItem>
                     ))}
                 </List>
                 ) : (
-                <h3>No Results to Display</h3>
+                  <div className="no-results">
+                    <h3>Results here</h3>
+                  </div>
                 )}
-            </Col>
+            {/* </Col> */}
             </Row>
           </Container>
         );

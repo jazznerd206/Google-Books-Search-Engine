@@ -1,0 +1,73 @@
+.list-group-item {
+    margin: 1px 1px;
+    display: flex;
+    flex-direction: column;
+    /* width: auto; */
+    width: 33%;
+    height: 400px;
+    overflow: hidden;
+    animation: splash 1s normal forwards ease-in-out;
+    transition: transform .2s;
+}
+
+.list-group-item:hover {
+    transform: scale(1.2);
+    height: auto;
+}
+
+.list-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* width: 33%; */
+    flex-wrap: wrap;
+    position: relative;
+    overflow: visible;
+}
+
+.book-title {
+    font-size: x-large;
+    font-weight: 500;
+    font-family: sans-serif;
+}
+
+.book-author {
+    font-size: large;
+    font-weight: 300;
+    font-family: '';
+}
+
+.no-results {
+    width: 100%;
+    text-align: center;
+    padding-top: 100px;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .list-group-item {
+        width: 100%;
+        margin: 10px 10px;
+    }
+    .list-group-item:hover {
+        transform: scale(1.1);
+        height: auto;
+    }
+  }
+
+
+
+
+@keyframes splash {
+    from {
+        opacity: 0;
+        transform: scale(0, 0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1, 1.1);
+    }
+    to {
+        transform: scale(1, 1);
+    }
+}

@@ -1,16 +1,16 @@
 .navbar-center {
     background: none;
-    min-height: 80px;
+    width: auto;
+    /* height: 25vh; */
     text-align: center;
 }
 .navbar-center .navbar-brand {
     color: black;
-    margin: 10px 10px 10px 10px;
-    padding: 0 30px 0 30px;
+    margin: 100px 10px 10px 10px;
 }
 .navbar-center .title {
     color: black;
-    margin: 10px 10px 10px 10px;
-    padding: 0 30px 0 30px;
-    font-size: xx-large;
+    font-size: 45px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: .1em;
 }
