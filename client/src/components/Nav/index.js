@@ -7,7 +7,7 @@ function Nav() {
       <a className="navbar-brand title" href="/">
         <p>Google Books</p>
       </a>
-      <a className="navbar-brand" href="/">
+      <a className="navbar-brand" href="/search">
         <p>Search</p>
       </a>
       <a className="navbar-brand" href="/saved">
