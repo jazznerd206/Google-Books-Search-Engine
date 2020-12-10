@@ -5,7 +5,7 @@ function Nav() {
   return (
     <nav className="navbar-center navbar-expand-lg">
       <a className="navbar-brand title" href="/">
-        <p>Google Books</p>
+        <p>Netboox</p>
       </a>
       <a className="navbar-brand" href="/search">
         <p>Search</p>

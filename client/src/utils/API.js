@@ -4,6 +4,12 @@ export default {
   bookSearch: function(bookTitle) {
     return axios.get('https://www.googleapis.com/books/v1/volumes?q=' + bookTitle);
   },
+  bookGenreSearch: function(genre) {
+    return axios.get('http://openlibrary.org/search.json?q=subject:' + genre);
+  },
+  bookCoverSearch: function(olid) {
+    return axios.get('http://covers.openlibrary.org/b/olid/' + olid);
+  },
   // Gets all books
   getBooks: function() {
     return axios.get("/api/books");
