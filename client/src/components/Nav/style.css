@@ -1,18 +1,40 @@
-.navbar-center {
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap');
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     background: none;
     width: auto;
     /* height: 25vh; */
     text-align: center;
 }
-.navbar-center .navbar-brand {
-    color: black;
-    margin: 100px 10px 10px 10px;
+
+.navbar-collaps {
+    z-index: 1000;
+    background: white;
 }
-.navbar-center .title {
+
+.nav-link {
+    color: black;
+    margin: 10px 10px 10px 10px;
+    padding-top: 20px;
+    font-size: xx-large;
+    text-shadow: 2px 2px #ff0000;
+}
+.navbar .title {
     color: black;
     font-size: 45px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     letter-spacing: .1em;
+    text-shadow: 2px 2px #ff0000;
+    text-align: center;
+}
+
+.title p {
+    font-family: 'Bebas Neue';
+    font-size: 100px;
 }
 
 /* .navbar-brand .title {

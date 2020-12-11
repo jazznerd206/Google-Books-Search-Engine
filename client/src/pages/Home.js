@@ -15,7 +15,7 @@ function Home() {
     const getBookData = () => {
         genreArray.forEach(type => {
             API.bookGenreSearch(type).then(res => {
-                console.log(res.data.docs)
+                // console.log(res.data.docs)
                 res.data.docs.forEach(volume => {
                     if (volume.cover_edition_key) {
                         setBooks(books => [...books, volume])
@@ -30,13 +30,13 @@ function Home() {
 
     const selectBook = event => {
         event.preventDefault();
-        console.log(event.target.alt)
+        // console.log(event.target.alt)
         return (
             <div>{event.target.alt}</div>
         )
     }
 
-    console.log(books)
+    // console.log(books)
 
     return (
     <div>
@@ -63,7 +63,7 @@ function Home() {
                             </div>
                         )
                     })}
-                    {console.log(books.filter(book => book.subject.includes('Crime')))}
+                    {/* {console.log(books.filter(book => book.subject.includes('Crime')))} */}
                 </ul>
             </Fade>
         </div>
@@ -89,7 +89,7 @@ function Home() {
                             </div>
                         )
                     })}
-                    {console.log(books.filter(book => book.subject.includes('Crime')))}
+                    {/* {console.log(books.filter(book => book.subject.includes('Crime')))} */}
                 </ul>
             </Fade>
         </div>
