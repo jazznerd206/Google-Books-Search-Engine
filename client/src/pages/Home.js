@@ -15,12 +15,13 @@ function Home() {
     const getBookData = () => {
         genreArray.forEach(type => {
             API.bookGenreSearch(type).then(res => {
+                console.log(res.data.docs)
                 res.data.docs.forEach(volume => {
                     if (volume.cover_edition_key) {
                         setBooks(books => [...books, volume])
                     }  
                 })
-            }).catch(err => console.log(err))
+            }).catch(err => console.log(JSON.stringify(err)))
         })
     }
     useEffect(() => {
