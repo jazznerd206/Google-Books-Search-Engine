@@ -30,7 +30,7 @@ function Home() {
 
     const selectBook = event => {
         event.preventDefault();
-        // console.log(event.target.alt)
+        console.log(event.target.alt)
         return (
             <div>{event.target.alt}</div>
         )
@@ -58,7 +58,7 @@ function Home() {
                                 <img 
                                     src={`http://covers.openlibrary.org/b/olid/${book.cover_edition_key}.jpg`} 
                                     alt={book.cover_edition_key}
-                                    onClick={selectBook}
+                                    onClick={e => selectBook(e)}
                                 />
                             </div>
                         )
