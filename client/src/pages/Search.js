@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import SaveBtn from "../components/SaveBtn";
+import SearchRow from '../components/BookRow/SearchRow.js'
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
@@ -46,18 +47,19 @@ class Search extends Component {
         }
         //console.log(this.state.results)
     };
-    saveBook = book => {
-        API.saveBook(book)
-        .then(res => {
-            const bookSet = this.state.results;
-            console.log(bookSet);
-            console.log(book.link);
-            // +++++++++++++++++++++++++++
-            // remove saved book from list
-            // +++++++++++++++++++++++++++
-        })
-        .catch(err => console.log(err));
-    };
+    // saveBook = book => {
+    //     API.saveBook(book)
+    //     .then(res => {
+    //         // const bookSet = this.state.results;
+    //         // console.log(bookSet);
+    //         // console.log(book.link);
+    //         // +++++++++++++++++++++++++++
+    //         // remove saved book from list
+    //         // +++++++++++++++++++++++++++
+    //         console.log(res.data)
+    //     })
+    //     .catch(err => console.log(err));
+    // };
     render() {
         return (
           <Container>
@@ -84,7 +86,9 @@ class Search extends Component {
               <Row>
               {/* <Col size="sm-12"> */}
                 {this.state.results.length ? (
-                <List>
+                <div>
+                <SearchRow books={this.state.results}/>
+                {/* <List>
                     {this.state.results.map((book, index) => (
                     <ListItem key={book.id}>
                         <div className="cover-image">
@@ -117,11 +121,13 @@ class Search extends Component {
                         </div>
                     </ListItem>
                     ))}
-                </List>
+                </List> */}
+                </div>
                 ) : (
-                  <div className="no-results">
-                    <h3>Results here</h3>
-                  </div>
+                  null
+                  // <div className="no-results">
+                  //   <h3>Results here</h3>
+                  // </div>
                 )}
             {/* </Col> */}
             </Row>

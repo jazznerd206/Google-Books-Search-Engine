@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
+import API from '../../utils/API.js';
 import useModal from '../../hooks/useModal.js';
+import SaveBtn from "../SaveBtn/index.js";
 // import BookModal from '../BookModal/BookModal.js';
 import './styles.css';
 
 function Book(props) {
 
-    // const [ hovered, setHovered ] = useState(false)
     const { isShowing, toggle } = useModal()
 
-    // const toggleHover= () => {
-    //     console.log('hover')
-    //     setHovered(!hovered);
-    // }
+    const saveBook = book => {
+        API.saveBook(book)
+        .then(res => {
+            console.log(res.data)
+        })
+        .catch(err => console.log(err));
+    };
 
     return (
         <li
@@ -25,7 +29,14 @@ function Book(props) {
                 value={props.book.volumeInfo.title}
                 alt={props.book.id}
                 // onClick={toggle}
-                onClick={e => props.onClick(e)}
+                onClick={e => saveBook({
+                    title: props.book.volumeInfo.title,
+                    author: props.book.volumeInfo.authors[0],
+                    description: props.book.volumeInfo.description,
+                    image: props.book.volumeInfo.imageLinks.smallThumbnail,
+                    link: props.book.volumeInfo.infoLink,
+                    _id: props.book.id
+                    })}
                 onMouseEnter={toggle}
                 onMouseLeave={toggle}
             />

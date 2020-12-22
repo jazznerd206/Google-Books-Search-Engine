@@ -39,18 +39,13 @@ function Home() {
         API.singleBoookSearch(etag)
             .then(response => {
                 if (response.status === 200 && response.data.items) {
-                    console.log(response.data.items[0])
-                    return (
-                        <BookModal />
-                    )
+                    // console.log(response.data.items[0])
                 } else {
                     console.log(`no book data available`)
                 }
             })
             .catch(error => console.log(error))
     }
-
-    console.log(books)
 
     return (
     <div>
