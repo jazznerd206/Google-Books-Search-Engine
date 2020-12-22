@@ -88,9 +88,6 @@
     }
 }
 
-.genre-titles {
-  /* background: black; */
-}
 
 .genre-titles h1 {
   width: 250px;
@@ -99,36 +96,15 @@
   background: grey;
 }
 
-.book-row {
-    margin: 25px auto;
-    width: 100%;
-    /* height: 300px; */
-    display: flex;
-    align-items: center;
-    flex-direction: row;
-    overflow-x: scroll;
-    background: black;
+.title h1 {
+    margin: 0;
 }
 
-.list-item img {
-    margin: 20px 25px;
-    width: auto;
-    height: 250px;
-    transition: all .2s ease-in-out;
-    position: relative;
-}
 
-.modal {
-    position: absolute;
-    bottom: 250px;
-    height: 250px;
-    widows: 250px;
-    background: black;
-}
 
-/* .list-item img:hover {
+.list-item img:hover {
     transform: scale(1.1);
-} */
+}
 
 /* width */
 ::-webkit-scrollbar {

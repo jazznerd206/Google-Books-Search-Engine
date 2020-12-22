@@ -9,7 +9,7 @@ function NavigationBar() {
       <Navbar.Toggle />
       <Navbar.Brand href="/">
         <div className="navbar-brand title">
-          <p>Nextboox</p>
+          <p>Netboox</p>
         </div>
       </Navbar.Brand>
       <Navbar.Collapse>

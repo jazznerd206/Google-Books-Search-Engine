@@ -1,23 +1,19 @@
 import React, { useState } from 'react';
+import Book from './Book.js';
 import BookModal from '../BookModal/BookModal';
 import useModal from '../../hooks/useModal.js';
 import './styles.css';
 
 function BookRow(props) {
 
-    const [ hovered, setHovered ] = useState(false)
+    // const [ hovered, setHovered ] = useState(false)
     // const {isShowing, toggle} = useModal();
 
 
-    const toggleHoverOn = () => {
-        console.log('hovered')
-        setHovered(true);
-    }
-
-    const toggleHoverOff = () => {
-        console.log('not hovered')
-        setHovered(false)
-    }
+    // const toggleHover= () => {
+    //     console.log('hover')
+    //     setHovered(!hovered);
+    // }
 
     const titleStyle = {
         textTransform: 'uppercase',
@@ -35,22 +31,12 @@ function BookRow(props) {
             <ul className="book-row">
                 {props.books.filter(book => book.volumeInfo.previewLink.includes(props.genre))
                             .map(book => (
-                                <li
-                                    className="list-item"
-                                    key={book.id}
-                                    value={book.etag}
-                                >
-                                    
-                                    <img 
-                                        src={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.thumbnail : null}
-                                        value={book.volumeInfo.title}
-                                        alt={book.id}
-                                        // onClick={toggle}
-                                        onClick={e => props.onClick(e)}
-                                        onMouseEnter={toggleHoverOn}
-                                        onMouseLeave={toggleHoverOff}
-                                    />
-                                </li>
+                                <Book 
+                                    book={book} 
+                                    // hovered={hovered} 
+                                    // onHover={toggleHover} 
+                                    onClick={props.onClick}
+                                />
                             ))}
             </ul>
         </div>
