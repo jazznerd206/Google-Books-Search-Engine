@@ -82,54 +82,13 @@ class Search extends Component {
                   </FormBtn>
                 </form>
               </Col>
-              </Row>
-              <Row>
-              {/* <Col size="sm-12"> */}
                 {this.state.results.length ? (
                 <div>
                 <SearchRow books={this.state.results}/>
-                {/* <List>
-                    {this.state.results.map((book, index) => (
-                    <ListItem key={book.id}>
-                        <div className="cover-image">
-                          <img src={book.volumeInfo.imageLinks.smallThumbnail} alt={book.volumeInfo.title}></img>
-                        </div>
-                        <div className="book-title">
-                          {book.volumeInfo.title}
-                        </div>
-                        <div className="book-author">
-                          {book.volumeInfo.authors[0]}
-                        </div>
-                        <div className="book-summmary">
-                          {book.volumeInfo.description}
-                        </div>
-                        <div className="book-btn-div">
-                          <SaveBtn
-                              key={"" + index + book.id}
-                              disabled={book.volumeInfo.infoLink === "/"}
-                              onClick={() => this.saveBook({
-                              title: book.volumeInfo.title,
-                              author: book.volumeInfo.authors[0],
-                              description: book.volumeInfo.description,
-                              image: book.volumeInfo.imageLinks.smallThumbnail,
-                              link: book.volumeInfo.infoLink,
-                              _id: book.id
-                              })}
-                          >
-                              Save Book
-                          </SaveBtn>
-                        </div>
-                    </ListItem>
-                    ))}
-                </List> */}
                 </div>
                 ) : (
                   null
-                  // <div className="no-results">
-                  //   <h3>Results here</h3>
-                  // </div>
                 )}
-            {/* </Col> */}
             </Row>
           </Container>
         );

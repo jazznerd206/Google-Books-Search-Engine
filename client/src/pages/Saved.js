@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import DeleteBtn from "../components/DeleteBtn";
+import SavedRow from '../components/BookRow/SavedRow.js'
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 
@@ -44,6 +45,8 @@ class Saved extends Component {
             <Row>
               <Col size="sm-12">
                 {this.state.books.length ? (
+                <div>
+                  <SavedRow books={this.state.books} />
                 <List>
                     {this.state.books.map((book) => (
                       
@@ -64,6 +67,7 @@ class Saved extends Component {
                     </ListItem>
                     ))}
                 </List>
+                </div>
                 ) : (
                   <div className="no-results">
                     <h3>No books saved yet.</h3>

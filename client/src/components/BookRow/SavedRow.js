@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import Book from './Book.js';
+import SavedBook from './SavedBook.js';
 import BookModal from '../BookModal/BookModal';
 import useModal from '../../hooks/useModal.js';
 import './styles.css';
 
-function SearchRow(props) {
+function SavedRow(props) {
 
     // const [ hovered, setHovered ] = useState(false)
     // const {isShowing, toggle} = useModal();
@@ -30,7 +30,7 @@ function SearchRow(props) {
             </div>
             <ul className="book-row">
                 {props.books.map(book => (
-                    <Book 
+                    <SavedBook 
                         book={book} 
                         onClick={props.onClick}
                     />
@@ -40,4 +40,4 @@ function SearchRow(props) {
     )
 }
 
-export default SearchRow;
+export default SavedRow;
