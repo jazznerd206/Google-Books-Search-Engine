@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { List, ListItem } from '../components/List';
+import BookModal from '../components/BookModal/BookModal.js';
+import BookRow from '../components/BookRow/BookRow.js';
 import API from '../utils/API';
 import { Fade } from 'react-reveal';
 
@@ -7,141 +9,57 @@ import { Fade } from 'react-reveal';
 function Home() {
 
     const [ books, setBooks ] = useState([]);
+    const [ hovered, setHovered ] = useState(false)
+
+    const toggleHover = () => {
+        console.log('hovered')
+        setHovered(!hovered)
+    }
 
     const genreArray = [
-        'crime', 'fantasy', 'biography', 'childrens', 'thriller'
+        'crime', 'fantasy', 'biography', 'thriller'
     ];
 
     const getBookData = () => {
         genreArray.forEach(type => {
             API.bookGenreSearch(type).then(res => {
-                // console.log(res.data.docs)
-                res.data.docs.forEach(volume => {
-                    if (volume.cover_edition_key) {
-                        setBooks(books => [...books, volume])
-                    }  
-                })
-            }).catch(err => console.log(JSON.stringify(err)))
+                setBooks(books => [...books, ...res.data.items])
+            }).catch(err => console.log(err))
         })
     }
+
     useEffect(() => {
         getBookData();
     }, [])
 
+
     const selectBook = event => {
         event.preventDefault();
-        console.log(event.target.alt)
-        return (
-            <div>{event.target.alt}</div>
-        )
+        const etag = event.target.alt;
+        API.singleBoookSearch(etag)
+            .then(response => {
+                if (response.status === 200 && response.data.items) {
+                    console.log(response.data.items[0])
+                    return (
+                        <BookModal />
+                    )
+                } else {
+                    console.log(`no book data available`)
+                }
+            })
+            .catch(error => console.log(error))
     }
 
-    // console.log(books)
+    console.log(books)
 
     return (
     <div>
         <div className="flex-col">
-            <Fade>
-                <div className="genre-titles">
-                    <h1>Crime</h1>    
-                </div>
-            </Fade>
-            
-            <Fade bottom cascade>
-                <ul className="book-row">
-                    {books.filter(book => book.subject.includes('Crime')).map((book, index) => {
-                        return (
-                            <div 
-                                key={book.cover_edition_key}
-                                className="book-cover"
-                            >
-                                <img 
-                                    src={`http://covers.openlibrary.org/b/olid/${book.cover_edition_key}.jpg`} 
-                                    alt={book.cover_edition_key}
-                                    onClick={e => selectBook(e)}
-                                />
-                            </div>
-                        )
-                    })}
-                    {/* {console.log(books.filter(book => book.subject.includes('Crime')))} */}
-                </ul>
-            </Fade>
-        </div>
-        <div className="flex-col">
-            <Fade>
-                <div className="genre-titles">
-                    <h1>Biography</h1>    
-                </div>
-            </Fade>
-            <Fade bottom cascade>
-                <ul className="book-row">
-                    {books.filter(book => book.subject.includes('Biography')).map((book, index) => {
-                        return (
-                            <div 
-                                key={book.cover_edition_key}
-                                className="book-cover"
-                            >
-                                <img 
-                                    src={`http://covers.openlibrary.org/b/olid/${book.cover_edition_key}.jpg`} 
-                                    alt={book.cover_edition_key}
-                                    onClick={selectBook}
-                                />
-                            </div>
-                        )
-                    })}
-                    {/* {console.log(books.filter(book => book.subject.includes('Crime')))} */}
-                </ul>
-            </Fade>
-        </div>
-        <div className="flex-col">
-            <Fade>
-                <div className="genre-titles">
-                    <h1>Thriller</h1>    
-                </div>
-            </Fade>
-            <Fade bottom cascade>
-            <ul className="book-row">
-                {books.filter(book => book.subject.includes('Thriller')).map((book, index) => {
-                    return (
-                        <div 
-                            key={book.cover_edition_key}
-                            className="book-cover"
-                        >
-                            <img 
-                                src={`http://covers.openlibrary.org/b/olid/${book.cover_edition_key}.jpg`} 
-                                alt={book.cover_edition_key}
-                                onClick={selectBook}
-                            />
-                        </div>
-                    )
-                })}
-            </ul>
-            </Fade>
-        </div>
-        <div className="flex-col">
-            <Fade>
-                <div className="genre-titles">
-                    <h1>Childrens</h1>    
-                </div>
-            </Fade>
-            <Fade bottom cascade>
-            <ul className="book-row">
-                {books.filter(book => book.subject.includes('Children')).map((book, index) => {
-                    return (
-                        <div 
-                            key={book.cover_edition_key}
-                            className="book-cover"
-                        >
-                            <img 
-                                src={`http://covers.openlibrary.org/b/olid/${book.cover_edition_key}.jpg`} 
-                                alt={book.cover_edition_key}
-                                onClick={selectBook}
-                            />
-                        </div>
-                    )
-                })}
-            </ul>
-            </Fade>
+            {genreArray.map(genre => {
+                return (
+                    <BookRow books={books} onClick={e => selectBook(e)} genre={genre} />
+                )
+            })}
         </div>
     </div>
     )

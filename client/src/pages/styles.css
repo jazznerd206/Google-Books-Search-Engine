@@ -89,7 +89,7 @@
 }
 
 .genre-titles {
-  background: black;
+  /* background: black; */
 }
 
 .genre-titles h1 {
@@ -100,26 +100,35 @@
 }
 
 .book-row {
-    /* margin: 25px auto; */
+    margin: 25px auto;
     width: 100%;
-    height: 300px;
+    /* height: 300px; */
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     flex-direction: row;
     overflow-x: scroll;
     background: black;
 }
 
-.book-cover img {
-    margin: 0px 5px;
+.list-item img {
+    margin: 20px 25px;
     width: auto;
     height: 250px;
     transition: all .2s ease-in-out;
+    position: relative;
 }
 
-.book-cover img:hover {
-    transform: scale(1.1);
+.modal {
+    position: absolute;
+    bottom: 250px;
+    height: 250px;
+    widows: 250px;
+    background: black;
 }
+
+/* .list-item img:hover {
+    transform: scale(1.1);
+} */
 
 /* width */
 ::-webkit-scrollbar {

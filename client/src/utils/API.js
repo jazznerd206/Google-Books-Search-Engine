@@ -5,10 +5,16 @@ export default {
     return axios.get('https://www.googleapis.com/books/v1/volumes?q=' + bookTitle);
   },
   bookGenreSearch: function(genre) {
-    return axios.get('https://openlibrary.org/search.json?q=subject:' + genre);
+    return axios.get('https://www.googleapis.com/books/v1/volumes?q=subject:' + genre);
   },
   bookCoverSearch: function(olid) {
     return axios.get('https://covers.openlibrary.org/b/olid/' + olid);
+  },
+  openBoookSearch: function(isbn) {
+    return axios.get('https://www.googleapis.com/books/v1/volumes?q=isbn:' + isbn);
+  },
+  singleBoookSearch: function(etag) {
+    return axios.get('https://www.googleapis.com/books/v1/volumes?q=id=' + etag);
   },
   // Gets all books
   getBooks: function() {
