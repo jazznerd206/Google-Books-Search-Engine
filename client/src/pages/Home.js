@@ -1,20 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { List, ListItem } from '../components/List';
-import BookModal from '../components/BookModal/BookModal.js';
+// import { List, ListItem } from '../components/List';
+// import BookModal from '../components/BookModal/BookModal.js';
 import BookRow from '../components/BookRow/BookRow.js';
 import API from '../utils/API';
-import { Fade } from 'react-reveal';
+// import { Fade } from 'react-reveal';
 
 
 function Home() {
 
     const [ books, setBooks ] = useState([]);
-    const [ hovered, setHovered ] = useState(false)
-
-    const toggleHover = () => {
-        console.log('hovered')
-        setHovered(!hovered)
-    }
 
     const genreArray = [
         'crime', 'fantasy', 'biography', 'thriller'
@@ -52,7 +46,7 @@ function Home() {
         <div className="flex-col">
             {genreArray.map(genre => {
                 return (
-                    <BookRow books={books} onClick={e => selectBook(e)} genre={genre} />
+                    <BookRow key={genre} books={books} onClick={e => selectBook(e)} genre={genre} />
                 )
             })}
         </div>

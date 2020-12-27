@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import DeleteBtn from "../components/DeleteBtn";
+// import DeleteBtn from "../components/DeleteBtn";
 import SavedRow from '../components/BookRow/SavedRow.js'
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+// import { List, ListItem } from "../components/List";
 
 
 class Saved extends Component {
@@ -46,27 +46,7 @@ class Saved extends Component {
               <Col size="sm-12">
                 {this.state.books.length ? (
                 <div>
-                  <SavedRow books={this.state.books} />
-                <List>
-                    {this.state.books.map((book) => (
-                      
-                    <ListItem key={book._id}>
-                        <div className="cover-image">
-                          <img src={book.image} alt={book.title}></img>
-                        </div>
-                        <div className="book-title">
-                          {book.title}
-                        </div>
-                        <div className="book-author">
-                          {book.author}
-                        </div>
-                        <div className="book-summmary">
-                          {book.description}
-                        </div>
-                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                    </ListItem>
-                    ))}
-                </List>
+                  <SavedRow books={this.state.books} onClick={e => this.deleteBook(e)}/>
                 </div>
                 ) : (
                   <div className="no-results">

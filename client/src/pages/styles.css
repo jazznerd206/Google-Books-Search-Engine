@@ -90,10 +90,10 @@
 
 
 .genre-titles h1 {
-  width: 250px;
-  margin: 0 auto;
-  padding: 10px 0;
-  background: grey;
+  width: auto;
+  margin: 0;
+  /* padding: 10px 0; */
+  background: none; 
 }
 
 .title h1 {

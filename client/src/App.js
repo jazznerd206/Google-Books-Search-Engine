@@ -4,7 +4,7 @@ import Home from "./pages/Home";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import Nav from "./components/Nav";
-import API from "./utils/API.js"
+// import API from "./utils/API.js"
 import './style.css';
 
 function App() {

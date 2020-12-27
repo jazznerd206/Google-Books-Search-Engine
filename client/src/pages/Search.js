@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import SaveBtn from "../components/SaveBtn";
+// import SaveBtn from "../components/SaveBtn";
 import SearchRow from '../components/BookRow/SearchRow.js'
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
+// import { List, ListItem } from "../components/List";
 import { Input, FormBtn } from "../components/Form";
 import './styles.css';
 
@@ -47,27 +47,11 @@ class Search extends Component {
         }
         //console.log(this.state.results)
     };
-    // saveBook = book => {
-    //     API.saveBook(book)
-    //     .then(res => {
-    //         // const bookSet = this.state.results;
-    //         // console.log(bookSet);
-    //         // console.log(book.link);
-    //         // +++++++++++++++++++++++++++
-    //         // remove saved book from list
-    //         // +++++++++++++++++++++++++++
-    //         console.log(res.data)
-    //     })
-    //     .catch(err => console.log(err));
-    // };
     render() {
         return (
           <Container>
             <Row>
               <Col size="sm-12">
-                {/* <Jumbotron>
-                  <h1>Book your next adventure!!</h1>
-                </Jumbotron> */}
                 <form>
                   <Input
                     value={this.state.bookTitle}
@@ -84,7 +68,7 @@ class Search extends Component {
               </Col>
                 {this.state.results.length ? (
                 <div>
-                <SearchRow books={this.state.results}/>
+                  <SearchRow books={this.state.results}/>
                 </div>
                 ) : (
                   null

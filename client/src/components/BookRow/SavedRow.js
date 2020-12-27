@@ -1,19 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import SavedBook from './SavedBook.js';
-import BookModal from '../BookModal/BookModal';
-import useModal from '../../hooks/useModal.js';
+// import BookModal from '../BookModal/BookModal';
+// import useModal from '../../hooks/useModal.js';
 import './styles.css';
 
 function SavedRow(props) {
-
-    // const [ hovered, setHovered ] = useState(false)
-    // const {isShowing, toggle} = useModal();
-
-
-    // const toggleHover= () => {
-    //     console.log('hover')
-    //     setHovered(!hovered);
-    // }
 
     const titleStyle = {
         textTransform: 'uppercase',
@@ -31,6 +22,7 @@ function SavedRow(props) {
             <ul className="book-row">
                 {props.books.map(book => (
                     <SavedBook 
+                        key={book._id}
                         book={book} 
                         onClick={props.onClick}
                     />

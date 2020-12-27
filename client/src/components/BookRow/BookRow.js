@@ -1,26 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Book from './Book.js';
-import BookModal from '../BookModal/BookModal';
-import useModal from '../../hooks/useModal.js';
+// import BookModal from '../BookModal/BookModal';
+// import useModal from '../../hooks/useModal.js';
 import './styles.css';
 
 function BookRow(props) {
 
-    // const [ hovered, setHovered ] = useState(false)
-    // const {isShowing, toggle} = useModal();
-
-
-    // const toggleHover= () => {
-    //     console.log('hover')
-    //     setHovered(!hovered);
-    // }
-
     const titleStyle = {
         textTransform: 'uppercase',
         textAlign: 'left',
-        paddingLeft: '50px',
-        background: 'rgb(245,245,245,.5)',
-        color: 'rgb(50,50,50)'
+        padding: '0px 50px 0px 50px',
+        margin: '0',
+        background: 'black',
+        color: 'white'
     }
 
     return (
@@ -31,7 +23,8 @@ function BookRow(props) {
             <ul className="book-row">
                 {props.books.filter(book => book.volumeInfo.previewLink.includes(props.genre))
                             .map(book => (
-                                <Book 
+                                <Book
+                                    key={book.id} 
                                     book={book} 
                                     // hovered={hovered} 
                                     // onHover={toggleHover} 

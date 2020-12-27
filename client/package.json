@@ -6,6 +6,7 @@
   "dependencies": {
     "axios": "^0.18.0",
     "react": "^16.6.3",
+    "react-awesome-reveal": "^3.5.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^16.6.3",
     "react-reveal": "^1.2.2",

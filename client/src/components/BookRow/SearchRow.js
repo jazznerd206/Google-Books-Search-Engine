@@ -1,19 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Book from './Book.js';
-import BookModal from '../BookModal/BookModal';
-import useModal from '../../hooks/useModal.js';
+// import BookModal from '../BookModal/BookModal';
+// import useModal from '../../hooks/useModal.js';
 import './styles.css';
 
 function SearchRow(props) {
-
-    // const [ hovered, setHovered ] = useState(false)
-    // const {isShowing, toggle} = useModal();
-
-
-    // const toggleHover= () => {
-    //     console.log('hover')
-    //     setHovered(!hovered);
-    // }
 
     const titleStyle = {
         textTransform: 'uppercase',
